@@ -1,0 +1,26 @@
+{
+    "name": "jigius/attra",
+    "description": "Test task",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jigius",
+            "email": "jigius@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:jigius/acc-core-pdata.git"
+        }
+    ],
+    "require-dev": {
+        "robmorgan/phinx": "^0.13.4",
+        "symfony/yaml": "5.4.x-dev"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "jigius/acc-core-pdata": "dev-rf@1"
+    }
+}
