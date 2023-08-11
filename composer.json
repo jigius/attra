@@ -9,11 +9,16 @@
             "email": "jigius@gmail.com"
         }
     ],
+    "autoload": {
+      "psr-4": {
+        "Local\\": "library"
+      }
+    },
     "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:jigius/acc-core-pdata.git"
-        }
+      {
+        "type": "vcs",
+        "url": "git@github.com:jigius/little-sweet-pods"
+      }
     ],
     "require-dev": {
         "robmorgan/phinx": "^0.13.4",
@@ -21,6 +26,10 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "jigius/acc-core-pdata": "dev-rf@1"
+        "nikic/fast-route": "v1.x-dev",
+        "jigius/little-sweet-pods": "dev-main",
+      "ext-pdo": "*",
+        "ramsey/uuid": "^4.2",
+      "ext-json": "*"
     }
 }

@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteRule .* - [E=development:yes]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(api/[^?]+) api.php?_route_=$1 [L,QSA]
