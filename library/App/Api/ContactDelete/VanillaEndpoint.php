@@ -47,7 +47,10 @@ final class VanillaEndpoint implements EndpointInterface
                     new Persistence\Request\RqDeleteEntity(
                         (new Persistence\Entity())
                             ->withUser(
-                                (new User\Persistence\Printer\PrnEntityWithUuId($this->repo))
+                                (new User\Persistence\Printer\PrnEntityWithUuIdOrCreate(
+                                    $this->repo,
+                                    new User\Persistence\Printer\PrnEntityWithUuId($this->repo)
+                                ))
                                     ->with("entity", new User\Persistence\Entity())
                                     ->with("uuid", $req->query()->param(EndpointInterface::QUERY_PARAM_UUID))
                                     ->finished()

@@ -50,7 +50,10 @@ final class VanillaEndpoint implements EndpointInterface
                 ->with("entity", new Entity())
                 ->with(
                     "user",
-                    (new User\Persistence\Printer\PrnEntityWithUuId($this->repo))
+                    (new User\Persistence\Printer\PrnEntityWithUuIdOrCreate(
+                        $this->repo,
+                        new User\Persistence\Printer\PrnEntityWithUuId($this->repo)
+                    ))
                         ->with("entity", new User\Persistence\Entity())
                         ->with("uuid", $req->query()->param(EndpointInterface::QUERY_PARAM_UUID))
                         ->finished()
