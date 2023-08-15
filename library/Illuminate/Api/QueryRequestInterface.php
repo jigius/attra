@@ -12,9 +12,10 @@ interface QueryRequestInterface
     
     /**
      * @param string $name
+     * @param string $default
      * @return string
      */
-    public function param(string $name): string;
+    public function param(string $name, string $default = ""): string;
     
     /**
      * @param string $name

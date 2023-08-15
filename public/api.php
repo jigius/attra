@@ -12,7 +12,7 @@ $dispatcher =
         $r
             ->addRoute(
                 "GET",
-                "api/contacts/{uuid}",
+                "api/0.0.1/contacts/{uuid}",
                 (function (string $id) use (&$endpoints) {
                     $endpoints = $endpoints->with($id, new App\Api\Contacts\ConfiguredEndpoint());
                     return $id;
@@ -21,7 +21,7 @@ $dispatcher =
         $r
             ->addRoute(
                 'DELETE',
-                'api/contact/{uuid}',
+                'api/0.0.1/contact/{uuid}',
                 (function (string $id) use (&$endpoints) {
                     $endpoints = $endpoints->with($id, new App\Api\ContactDelete\ConfiguredEndpoint());
                     return $id;
@@ -29,8 +29,8 @@ $dispatcher =
             );
         $r
             ->addRoute(
-                "PUT",
-                "api/contact/{uuid}",
+                "POST",
+                "api/0.0.1/contact/{uuid}",
                 (function (string $id) use (&$endpoints) {
                     $endpoints = $endpoints->with($id, new App\Api\ContactAdd\ConfiguredEndpoint());
                     return $id;
@@ -60,9 +60,6 @@ try {
         case FastRoute\Dispatcher::FOUND:
             $handler = $routeInfo[1];
             $vars = $routeInfo[2];
-            //$respCode = 200;
-            //var_dump($handler);
-            //var_dump($vars);
             $rq = new App\Api\ConfiguredRequest($vars);
             $endpoints
                 ->endpoint($handler)

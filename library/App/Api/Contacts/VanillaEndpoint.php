@@ -65,7 +65,7 @@ final class VanillaEndpoint implements EndpointInterface
              */
             $data[] = $c->printed(new PrnArray(["id", "name", "phone"]));
         }
-        return $resp->withPayload($data);
+        return $resp->withPayload([null, $data]);
     }
     
     /**

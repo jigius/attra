@@ -34,12 +34,9 @@ final class VanillaQuery implements QueryRequestInterface
      * @inheritDoc
      * @throws LogicException
      */
-    public function param(string $name): string
+    public function param(string $name, string $default = ""): string
     {
-        if (!isset($this->i[$name])) {
-            throw new LogicException("`$name` is not defined");
-        }
-        return $this->i[$name];
+        return $this->i[$name] ?? $default;
     }
     
     /**

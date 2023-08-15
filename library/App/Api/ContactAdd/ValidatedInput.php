@@ -50,7 +50,7 @@ final class ValidatedInput implements I\Api\ValidatableInputInterface
             throw new LogicException("`request` is not defined");
         }
         $q = $this->i['request']->query();
-        if (!$q->has(EndpointInterface::QUERY_PARAM_UUID)) {
+        if (!($q->has(EndpointInterface::QUERY_PARAM_UUID))) {
             throw
                 new InvalidArgumentException(
                     "`" . EndpointInterface::QUERY_PARAM_UUID . "' is not defined",
@@ -66,7 +66,7 @@ final class ValidatedInput implements I\Api\ValidatableInputInterface
         }
         $that = $this->blueprinted();
         $body = $this->i['request']->body();
-        if (!$body->has(EndpointInterface::BODY_PARAM_NAME)) {
+        if (empty($body->param(EndpointInterface::BODY_PARAM_NAME))) {
             $that
                 ->i["bag"] =
                 $that
@@ -101,7 +101,7 @@ final class ValidatedInput implements I\Api\ValidatableInputInterface
                             );
             }
         }
-        if (!$body->has(EndpointInterface::BODY_PARAM_PHONE)) {
+        if (empty($body->param(EndpointInterface::BODY_PARAM_PHONE))) {
             $that
                 ->i["bag"] =
                 $that

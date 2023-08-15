@@ -39,16 +39,24 @@ final class VanillaEndpoint implements EndpointInterface
      */
     public function processed(I\Api\RequestInterface $req, I\Api\ResponseInterface $resp): I\Api\ResponseInterface
     {
+        $req = new WithWrappedBodyRequest($req, new SanitizedBodyParams());
         $bagErrors = $this->validator->withInput($req)->validated()->bagWithErrors()->bag();
         if (!empty($bagErrors)) {
-            $data = [
+            $payload = [
                 true,
-                array_map(
-                    function (Exception $err): string {
-                        return $err->getMessage();
-                    },
-                    $bagErrors,
-                )
+                [
+                    "errors" =>
+                        array_map(
+                            function (Exception $err): string {
+                                return $err->getMessage();
+                            },
+                            $bagErrors,
+                        ),
+                    "values" => [
+                        EndpointInterface::BODY_PARAM_NAME => $req->body()->param(EndpointInterface::BODY_PARAM_NAME),
+                        EndpointInterface::BODY_PARAM_PHONE => $req->body()->param(EndpointInterface::BODY_PARAM_PHONE)
+                    ]
+                ]
             ];
         } else {
             $this
@@ -73,9 +81,12 @@ final class VanillaEndpoint implements EndpointInterface
                             )
                     )
                 );
-            $data = [null, (int)$this->repo->stock()->lastInsertId()];
+            $payload = [null, (int)$this->repo->stock()->lastInsertId()];
         }
-        return $resp->withPayload($data);
+        return
+            $resp
+                ->withPayload($payload)
+                ->withCode(201);
     }
     
     /**
