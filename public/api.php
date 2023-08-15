@@ -37,15 +37,7 @@ $dispatcher =
                 }) ("ADD")
             );
 });
-
-
-// Fetch method and URI from somewhere
-$httpMethod = $_SERVER['REQUEST_METHOD'];
-$uri = $_GET["_route_"];
-
-//echo $httpMethod;
-
-$routeInfo = $dispatcher->dispatch($httpMethod, $uri);
+$routeInfo = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $_GET["_route_"]);
 $respCode = 200;
 try {
     switch ($routeInfo[0]) {
@@ -80,8 +72,6 @@ try {
         $respCode = 400;
     }
 } catch (Throwable $ex) {
-    var_dump($ex);
     $respCode = 500;
 }
-
 http_response_code($respCode);
