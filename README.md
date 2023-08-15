@@ -21,7 +21,7 @@
 4. Установить зависимости - `composer i`
 5. Создать конфигурационный файл для миграции схемы БД - `cp phinx-dist.php phinx.php`
 6. Заполнить параметры соединения к БД в файле `phinx.php` (под ключом `development`)
-7. Создать БД - `php vendor/bin/phinx migrate`
+7. Создать схему БД - `php vendor/bin/phinx migrate`
 8. Создать конфигурационный файл проекта - `cp environment-dist.php environment.php`
 9. Заполнить параметры соединения к БД в файле `environment.php` (под ключом `pdo`)
 10. Сделать настройки, чтобы корневой папкой у http-сервера стала папка проекта `public/`
