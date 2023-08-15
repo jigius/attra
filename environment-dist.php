@@ -8,5 +8,8 @@ return [
     ],
     "userAuth" => [
         "ttl" => 86400 * 7 // 7 days
+    ],
+    "ui" => [
+        "phoneMask" => "9 999 999 99 99"
     ]
 ];

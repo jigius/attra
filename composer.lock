@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b03837d9cf77a15c96d3eb25608855f5",
+    "content-hash": "8e456f6785d2ded9e3b665c20c39c8fa",
     "packages": [
         {
             "name": "brick/math",
@@ -72,12 +72,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jigius/little-sweet-pods.git",
-                "reference": "c23464fe9c56d89f669401f10f3ce2c4efde5182"
+                "reference": "932248c297056a97ccc2b394312f9f082f3c41cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jigius/little-sweet-pods/zipball/c23464fe9c56d89f669401f10f3ce2c4efde5182",
-                "reference": "c23464fe9c56d89f669401f10f3ce2c4efde5182",
+                "url": "https://api.github.com/repos/jigius/little-sweet-pods/zipball/932248c297056a97ccc2b394312f9f082f3c41cf",
+                "reference": "932248c297056a97ccc2b394312f9f082f3c41cf",
                 "shasum": ""
             },
             "require": {
@@ -85,18 +85,14 @@
             },
             "require-dev": {
                 "fakerphp/faker": "1.17.x-dev",
-                "robmorgan/phinx": "dev-master",
-                "symfony/var-dumper": "5.4.x-dev"
+                "robmorgan/phinx": "dev-master"
             },
             "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Jigius\\LittleSweetPods\\": "src/"
-                },
-                "files": [
-                    "debug.php"
-                ]
+                }
             },
             "license": [
                 "MIT"
@@ -112,7 +108,7 @@
                 "source": "https://github.com/jigius/little-sweet-pods/tree/main",
                 "issues": "https://github.com/jigius/little-sweet-pods/issues"
             },
-            "time": "2022-01-10T11:46:04+00:00"
+            "time": "2023-08-15T07:06:16+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -1940,7 +1936,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"

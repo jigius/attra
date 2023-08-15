@@ -27,9 +27,9 @@
     "minimum-stability": "dev",
     "require": {
         "nikic/fast-route": "v1.x-dev",
-        "jigius/little-sweet-pods": "dev-main",
-      "ext-pdo": "*",
+        "ext-pdo": "*",
         "ramsey/uuid": "^4.2",
-      "ext-json": "*"
+        "ext-json": "*",
+        "jigius/little-sweet-pods": "dev-main"
     }
 }
