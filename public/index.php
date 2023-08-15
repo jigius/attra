@@ -58,8 +58,8 @@ try {
 <script type="template/x-html" id="error">
   <div class="alert alert-danger" role="alert"><%= text %></div>
 </script>
-<script type="template/x-shtml" id="form">
-  <form class="mb-4">
+<script type="template/x-html" id="form">
+  <form class="mb-4" autocomplete="off">
     <div class="title-form">Добавить контакт</div>
     <hr>
       <div class="field-wrapper">
