@@ -98,19 +98,6 @@ try {
   (function (dep) {
     dep.resolved('$', 'template', 'EventQueue')
       .then(function ($, template, eq) {
-        const fixItemsCenterAlign = (function (sel) {
-          const f = function () {
-            if (document.body.scrollHeight > document.body.clientHeight) {
-              sel.removeClass("align-items-center");
-            } else {
-              sel.addClass("align-items-center");
-            }
-          }
-          $( window ).on( "resize", function() {
-            f();
-          });
-          return f;
-        }) ($(".content"));
         eq
           .event("failure")
           .subscribe(function () {
@@ -128,7 +115,6 @@ try {
           .event("contacts@render")
           .subscribe(function (contacts) {
             $(".contact-box").html(template.template("contacts", {"items": contacts}));
-            fixItemsCenterAlign();
             eq.event("contacts@rendered").publish();
           });
         eq
