@@ -42,7 +42,7 @@ try {
         <%= items[i].name %>
         <div class="contact-box_item-delete js-delete" data-id="<%= items[i].id %>">✕</div>
       </div>
-      <?
+      <?php
          $phoneMask = $cfg->fetch("ui.phoneMask", "+9 (999) 999 99-99");
       ?>
       <div class="contact-box_item-tel" data-inputmask="'mask': '<?= $phoneMask?>'"><%= items[i].phone %></div>
@@ -73,7 +73,7 @@ try {
           <div class="invalid-feedback"><%= errors['<?= $paramName ?>'] %></div>
           <% } %>
         </div>
-        <?
+        <?php
           $phoneMask = $cfg->fetch("ui.phoneMask", "+9 (999) 999 99-99");
         ?>
         <div class="mb-2">
